@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+ {% load static %}
+ {% load crispy_forms_tags %}
+
+
+  {% block content %}
+ 
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-6 mx-auto mt-5 col-md-justyfy-content-center">
+      <div class="card card-body bg-danger" >
+        <div class="card-title text-center text-white">
+        <div class="text-capitalize">login to bid</div><form method="POST">
+         {% csrf_token %}
+   
+         <div class="form-group">
+             <label for="exampleFormControlInput1">Name</label>
+             <input name="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your name...">
+         </div>
+   
+         <div class="form-group">
+           <label for="exampleFormControlInput1">E-mail</label>
+           <input name="email" type="email" required=True class="form-control" id="exampleFormControlInput1" placeholder="Your email address...">
+         </div>
+   
+         <div class="form-group">
+           <label for="exampleFormControlTextarea1">Message</label>
+           <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="What's on your mind..."></textarea>
+         </div>
+   
+         <button type="submit" class="btn btn-secondary btn-block mt-2">Submit</button>
+     </form>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+</div>
+
+
+   {% endblock  %}

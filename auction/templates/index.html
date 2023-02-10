@@ -1,0 +1,129 @@
+{% extends 'base.html' %} 
+ {% load static %}
+
+  {% block content %}
+  <section class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col notice bg-dark pt-5">
+          <div class="head text-light text-center  mt-5 pt-5" >
+            <h3 class="text-light">Transport and earth moving equipment Auction</h3>
+  
+            <p>Next auction</p>
+            <li>24 Auctober 2023</li>
+
+            <a href="{%  url 'bidnow' %}"> 
+            <button class="btn btn-danger mb-4 mt-3">View Over {{ product_count }} Items On Auction</button>
+          </a> 
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="Call-to-action">
+  <div class="container">
+  <div class="row ">
+    <div class="col-12 mt-5">
+      <p class="display-1 text-white mt-3">Our Next Auction</p>
+        <div class="title-underline ">r</div>
+    </div>
+  
+    <div class="col mt-2 text-white" >
+      <h1 > 24 January 2023 to 26 January 2023
+        <span class="text-white">Transport and earthmoving equipment</span>
+      </h1>
+      <a href="{%  url 'bidnow' %}"> 
+      <button class="btn btn-primary mt-2">Online Bidding </button> 
+    </a>  
+    <a href="{%  url 'tsandcs' %}"> 
+      <button class="btn btn-primary mt-2">Auction Details </button> 
+    </a>  
+      <a href="{%  url 'bidnow' %}"> 
+      <button class="btn btn-primary mt-2">Contact via whatsapp </button> 
+    </a>  
+      <a href="{%  url 'contact' %}"> 
+      <button class="btn btn-primary mt-2">Our location </button>
+    </a>     
+     </div>
+  </div>
+  </section>
+  <section class="">
+    <div class="container mt-5">
+    <div class="row">
+        <p class="display-1 bg-light">On Auction</p>
+          <div class="title-underline "></div>
+        <div class="col-12">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
+  
+              {% for i in bid  %} 
+              <div class="col mt-3">
+                <div class="card">
+                  <div class="card-body">
+                    <img src="{{ i.product_thumbnail.url }}" class="img-fluid" alt="">
+                    <p class="card-title mt-3">
+                      {{ i.product_name }}
+                    </p>
+                  </a>  
+                  <a href="{% url 'product' i.id %}"> 
+                  <button class="btn btn-outline-primary btn-sm mt-2">Product Detail</button>
+                </a> 
+                {% if user.is_authenticated %}
+                 <a href="{% url "make_bid" i.pk %}">
+                  <button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                    Bid Now
+                  </button>
+                 </a>
+                 {% else %}
+                 {% endif %}
+                  </div>
+                </div>
+              </div>
+              {% endfor  %}
+           
+          </div>
+        </div>
+     </div>
+    </div>
+    </div>
+    </section>
+    <section class="">
+      <div class="container mt-5">
+      <div class="row">
+          <p class="display-1 bg-light">On Sale</p>
+            <div class="title-underline "></div>
+          <div class="col-12">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
+    
+                {% for i in on_sale %} 
+                <div class="col mt-3">
+                  <div class="card">
+                    <div class="card-body">
+                      <img src="{{ i.product_thumbnail.url }}" class="img-fluid" alt="">
+                      <p class="card-title mt-3">
+                        {{ i.product_name }}
+                      </p>
+                    </a>  
+                    <a href="{% url 'product' i.id %}"> 
+                    <button class="btn btn-outline-primary btn-sm mt-2">Product Detail</button>
+                  </a> 
+                  {% if user.is_authenticated %}
+                   <a href="{% url "make_bid" i.pk %}">
+                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                      Bid Now
+                    </button>
+                   </a>
+                   {% else %}
+                   {% endif %}
+                    </div>
+                  </div>
+                </div>
+                {% endfor  %}
+             
+            </div>
+          </div>
+       </div>
+      </div>
+      </div>
+      </section>
+{% endblock %}

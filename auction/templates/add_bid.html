@@ -1,0 +1,39 @@
+{% extends 'base.html' %} 
+ {% load static %}
+
+  {% block content %} 
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-6 mx-auto mt-5 col-md-justyfy-content-center">
+        <div class="card card-body bg-success" >
+        <div class="card-title text-center text-white">
+        <div class="text-capitalize">Make your Bid now</div>
+        <form action="" method="post" >
+        {%  csrf_token %}
+       <div class="input-group my-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">USD</span>
+        </div>
+          <div class="form-control">{{ form }}</div>
+
+        
+         <input class="btn btn-primary  mt-2" type="submit" name="submit">
+
+      </div>
+    </form>   
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div> 
+
+
+  {% endblock %}
+
+
+
+
+  

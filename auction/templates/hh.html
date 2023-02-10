@@ -1,0 +1,42 @@
+{%  for t in bid %}
+      <div class="card  mt-5 mb-5 ">
+        <div class="card-body ">
+          <div class="card-title">{{ t.product_name }}</div>
+          <div class="card">
+            <img class="card-img-top"  src="{{ t.product_thumbnail.url }}"/>
+            <div class="card-body">
+              <div class="card-title">JCB 17 TIPPER</div><div class="card-title text-danger">Highest bid  USD 800</div>
+              <a href="{% url 'product' t.pk %}">
+              <button class="btn btn-primary">Product Detail </button>
+              </a>
+              <div class="card-text">{{ t.product_description  }}</div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-title">Recent Bidds</div>
+                  {% for b in bidders. %}
+                  <div class="card bg-info mt-4 ">
+                    <div class="card-body">
+                      <div class="card-title">@ {{ b.bid_price }}</div>
+                    </div>
+                  </div>
+                  {%  endfor %}
+            
+                </div>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">Bid Now </button>
+                <div class="modal fade" id="modal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">Header
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                      </div>
+                      <div class="modal-body">body</div>
+                      <div class="modal-footer">Footer</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {%  endfor %}

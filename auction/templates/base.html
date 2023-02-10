@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/adminlte.min.css" integrity="sha512-IuO+tczf4J43RzbCMEFggCWW5JuX78IrCJRFFBoQEXNvGI6gkUw4OjuwMidiS4Lm9Q2lILzpJwZuMWuSEeT9UQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/alt/adminlte.components.min.css" integrity="sha512-C6GDY2X+A6W2CYRoEykmm+Ta04hV2TqOSer0LJ+TeZCY3+b9i9pDnbwNgvlrpZSZIgBonixchcyVe7Nu8ccauQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/alt/adminlte.core.min.css" integrity="sha512-xihZdz1B0BgSS+aKKZn3WCVokTH1I/KbsubJJ/jfk9ir22aAtbFHw+oGPvKJUX76Wtl3kKhO+Wkj6Z47Pa76VQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/alt/adminlte.extra-components.min.css" integrity="sha512-Rho/nal+5pKgEFMfnMeJ5iynqFe2y/ev+KwrKIzFALivzIkj+3ymOWzhY/T9m5v9pkDUxZevORjoavsYCVbU/w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/alt/adminlte.light.min.css" integrity="sha512-sH43x9hDH6VYZCimbGd58vYrO4uMdmPn3m8QUgxNYi4MNmj4sbt+fN1jG+TnVA2Q0SA6tvEo6W6P1Z0FA+6AXA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/alt/adminlte.pages.min.css" integrity="sha512-G5uca2T4CI7/9IHrOI1DKXQaqBN17tyNzgL4rMSEavhnKwN82WDWptayW8/VbzI21UCjpErfXv7jRve+iCbb9g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  
+  <!-- overlayScrollbars -->
+ 
+</head>
+  <title>Welcome To Bg Auctions</title>
+</head>
+<body>
+  <div class="container">
+    <div class="container">
+      <div class="row row-cols-lg-3 upper-nav justi">
+        <div class="col-5 mt-2">
+          <h5 class="header mt-2 text-white ">Bg Auctions</h5>
+        </div>
+        <div class="col-6 ">
+          <h5 class=" mt-2 ">Bidding Stats here! </h5>
+          
+        </div>
+        <div class="col-3 mt-2">
+          <h5 class="text-right text-light">Call--07785534526 </h5>
+        </div>
+      </div>
+    </div>
+    <section class="lower-nav">
+      <nav class="navbar navbar-expand-md bg-danger ">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+          <button class="navbar-toggler" data-bs-toggle="collapse"  data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+         <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="{%  url 'home' %}" class="nav-link text-white">Home</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a id="dropdownSubMenu1" href="{%  url 'bidnow' %}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle nav-link text-white">On Auction</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+              <li><a href="{% url 'bidnow' %}" class="dropdown-item">All categories </a></li> 
+              {%  for c in category %}
+              <li><a href="{% url 'bidnow' %}?q={{ c.name }}" class="dropdown-item">{{ c.name }} </a></li>
+              {% endfor %}
+
+            
+              <!-- End Level two -->
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a id="dropdownSubMenu1" href="{%  url 'onsale' %}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle nav-link text-white">On Sale</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow"> 
+              <li><a href="{% url 'onsale' %}" class="dropdown-item">All categories </a></li> 
+              {%  for c in category %}
+              <li><a href="{% url 'onsale' %}?q={{ c.name }}" class="dropdown-item">{{ c.name }} </a></li>
+              {% endfor %}
+
+            
+              <!-- End Level two -->
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="{%  url 'about' %}" class="nav-link text-white">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="{%  url 'tsandcs' %}" class="nav-link text-white">TsAndCs</a>
+          </li>
+          <li class="nav-item">
+            <a href="{%  url 'contact' %}" class="nav-link text-white">Contact</a>
+          </li>
+       
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'logout' %}" class="nav-link text-white">Logout</a>
+          </li>
+          {%  else %}
+          <li class="nav-item">
+            <a href="{%  url 'login' %}" class="nav-link text-white">Login</a>
+          </li>
+          
+        {% endif %}
+        
+        </ul>
+        <div class="d-flex " >
+        <form method"POST" class="d-flex " role="search">
+          <input class="form-control me-2" name"q" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+      </div>
+      </div>
+    </div>
+    </div>
+      </div>
+    </nav>
+    </section>
+    {% if messages %}
+    {% for message in messages  %}
+    {% if message.tags == "success" %}
+    <div class="alert alert-success">
+      {{message}}
+    </div>
+    {% endif %}
+    {% if message.tags == "error" %}
+    <div class="alert alert-danger">
+      {{ message}}
+    </div>
+    {% endif %}
+        {% endfor %}
+        {% endif %}
+ 
+  
+
+  {%  block content %}
+
+
+  {%  endblock %}
+
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3 text-secondary"></i>BG Auctions
+          </h6>
+          <p>
+            BG Auctions offers a hassle free service, beginning with effective advertising and ending with promp
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Quick links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">About</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Terms</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Contact</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Home</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="{% url "faqs" %}" class="text-reset">FAQ</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Terms</a>
+          </p>
+          
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3 text-secondary"></i>Mutare rd GMB turn Off After N. Richards Msasa, Harare, Zimbabwe</p>
+          <p>
+            <i class="fas fa-envelope me-3 text-secondary"></i>
+            ekawenya@gmail.com
+          </p>
+          <p><i class="fas fa-phone me-3 text-secondary"></i> + 263 71 250 1759</p>
+          <p><i class="fas fa-print me-3 text-secondary"></i> + 263 77 235 7278</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+    © 2023 Copyright:
+    <a class="text-reset fw-bold" href="">AG AUCTIONS</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+    </section>
+  </section>   
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/adminlte.min.js" integrity="sha512-KBeR1NhClUySj9xBB0+KRqYLPkM6VvXiiWaSz/8LCQNdRpUm38SWUrj0ccNDNSkwCD9qPA4KobLliG26yPppJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/demo.min.js" integrity="sha512-1WYc267IxoxmWXSOf4gXEEiyfgK041c8LYQQBnIl4EsvcR5T+x+nJ2f783U29u2QX7OzDTYI0nEyTZ05O8Y1jg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/pages/dashboard.min.js" integrity="sha512-wXkHJ2i8Z5fK/q6k7qe38qA6uD+VpLC/LL2XobX3rVVw6F3//fDWwoqMQ2Mgy5nf9BIvW2gLbILQJTIO/gDrDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/pages/dashboard3.min.js" integrity="sha512-l8RWdqTMUrIWPpdL2yB14+n+2WBPFe/KhH65aa3YAi+fRVvRMKxMVgmdk0/EUXLRKLFJmUH4rBABfxBsribrJg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/pages/dashboard2.min.js" integrity="sha512-/On5eFU1vz1sGgejVpebEmg91zdKYXBcm4HPzDHcKOF1icilwxSR0C1ClBcK9IodnQdow2HjmHnqxt8PdQRrAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script type="text/javascript">
+
+  let thumbnails = document.getElementsByClassName ('thumbnail')
+  let activeImages = document.getElementsByClassName ('active')
+
+  for (var i=0; i <thumbnails.length; i++){
+
+    thumbnails[i].addEventListener('mouseover',  function(){
+      
+
+      if (activeImages.length > 0){
+         activeImages[0].classList.remove('active')
+      }
+
+      this.classList.add('active')
+      document.getElementById('product-zoom1').src = this.src
+    })
+
+  }
+
+</script>
+</body>
+</html>
+

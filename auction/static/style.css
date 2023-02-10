@@ -1,0 +1,63 @@
+
+body {
+    background-color: hsl(180, 18%, 82%);
+
+}
+
+li{
+    font-style: none;
+    list-style: none;
+}
+
+.upper-nav{
+    height: 70px;
+    background-color: blue;;
+}
+
+.upper-nav div h5 {
+    color: red;
+}
+
+.upper-nav p {
+    color: red;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-bottom: 20px;
+}
+.notice {
+    height: 50vh;
+    background-image:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url("img/cat.jpg");
+}
+
+
+.lower-nav {
+    background-color: rgb(15, 227, 110);
+}
+
+.Call-to-action {
+    height: 60vh;
+    background-image:linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.9)), url("img/cat.jpg");
+    
+}
+.title-underline {
+    background-color: blue;
+    height: 20px;
+}
+
+.card-footer {
+    background-color: blue;
+    height: 10px;
+}
+
+button{
+    background-color:#ff00bf; ;
+}
+
+.image_viewer {
+    height: 20vh;
+    width: 100%;
+}
+
+.brand-image  {
+    height: 40px;
+    width: 50px;
+}
